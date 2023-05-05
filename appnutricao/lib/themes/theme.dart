@@ -13,11 +13,14 @@ ThemeData colorsTwo = ThemeData(
         secondary: const Color.fromRGBO(12, 81, 73, 1)));
 
 ThemeData myTextThemes = ThemeData(
-    textTheme:  TextTheme(
+    textTheme: TextTheme(
         displayLarge: const TextStyle(
             fontSize: 20, fontFamily: 'OpenSans', fontWeight: FontWeight.bold),
         displayMedium: TextStyle(
-            fontSize: 40, fontFamily: 'OpenSans', fontWeight: FontWeight.bold, color: colorsTwo.colorScheme.primary),
+            fontSize: 40,
+            fontFamily: 'OpenSans',
+            fontWeight: FontWeight.bold,
+            color: colorsTwo.colorScheme.primary),
         displaySmall: const TextStyle(
             fontSize: 12, fontFamily: 'OpenSans', fontWeight: FontWeight.bold),
         headlineLarge: const TextStyle(
@@ -27,7 +30,7 @@ ThemeData myTextThemes = ThemeData(
         headlineSmall: const TextStyle(
             fontSize: 12, fontFamily: 'OpenSans', fontWeight: FontWeight.bold),
         titleLarge: const TextStyle(
-            fontSize: 20, fontFamily: 'OpenSans', fontWeight: FontWeight.bold),
+            fontSize: 40, fontFamily: 'OpenSans', fontWeight: FontWeight.bold),
         titleMedium: const TextStyle(
             fontSize: 16, fontFamily: 'OpenSans', fontWeight: FontWeight.bold),
         titleSmall: const TextStyle(
@@ -46,17 +49,22 @@ ThemeData myTextThemes = ThemeData(
             fontWeight: FontWeight.normal)));
 
 ThemeData buttonsTheme = ThemeData(
-    elevatedButtonTheme: ElevatedButtonThemeData(
-        style: ButtonStyle(
-            backgroundColor:
-                MaterialStateProperty.all(colorsTwo.colorScheme.primary))),
-    textButtonTheme: TextButtonThemeData(
-        style: ButtonStyle(
-            foregroundColor:
-                MaterialStateProperty.all(colorsTwo.colorScheme.secondary))));
-
-ThemeData MyappBarTheme = ThemeData(
-  appBarTheme: AppBarTheme(
-    backgroundColor: colorsOne.colorScheme.primary
-  )
+  elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+          backgroundColor:
+              MaterialStateProperty.all(colorsTwo.colorScheme.primary))
+              ),
+  textButtonTheme: TextButtonThemeData(
+      style: ButtonStyle(
+          foregroundColor:
+              MaterialStateProperty.all(colorsTwo.colorScheme.secondary))),
+  iconButtonTheme: IconButtonThemeData(
+      style: ButtonStyle(
+          textStyle:
+              MaterialStateProperty.all(myTextThemes.textTheme.titleLarge),
+          backgroundColor:
+              MaterialStateProperty.all(colorsTwo.colorScheme.primary))),
 );
+
+ThemeData myAppBarTheme = ThemeData(
+    appBarTheme: AppBarTheme(backgroundColor: colorsOne.colorScheme.primary));

@@ -1,5 +1,5 @@
 import 'package:appnutricao/screens/cadastro_user_login.dart';
-import 'package:appnutricao/screens/telaPrincipal.dart';
+import 'package:appnutricao/screens/tela_principal.dart';
 import 'package:flutter/material.dart';
 import 'package:appnutricao/themes/theme.dart';
 
