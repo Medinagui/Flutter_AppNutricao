@@ -1,4 +1,4 @@
-
+import 'package:appnutricao/screens/cadastro.dart';
 import 'package:appnutricao/screens/tela_principal.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +19,7 @@ class _NutricaoAppState extends State<NutricaoApp> {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: TelaPrincipal()
+      home: CadastroScreen()
     );
   }
 }

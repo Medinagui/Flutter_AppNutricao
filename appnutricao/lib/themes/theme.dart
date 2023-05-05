@@ -11,6 +11,11 @@ ThemeData colorsTwo = ThemeData(
     colorScheme: ColorScheme.fromSwatch().copyWith(
         primary: const Color.fromRGBO(10, 137, 103, 1),
         secondary: const Color.fromRGBO(12, 81, 73, 1)));
+ThemeData colorsThree = ThemeData(
+    primaryColor: const Color.fromRGBO(245, 245, 245, 1),
+    colorScheme: ColorScheme.fromSwatch().copyWith(
+        primary: const Color.fromRGBO(245, 245, 245, 96),
+        secondary: const Color.fromRGBO(0, 0, 0, 1)));
 
 ThemeData myTextThemes = ThemeData(
     textTheme: TextTheme(
@@ -21,20 +26,22 @@ ThemeData myTextThemes = ThemeData(
             fontFamily: 'OpenSans',
             fontWeight: FontWeight.bold,
             color: colorsTwo.colorScheme.primary),
-        displaySmall: const TextStyle(
-            fontSize: 12, fontFamily: 'OpenSans', fontWeight: FontWeight.bold),
+        displaySmall: TextStyle(
+            fontSize: 20, fontFamily: 'OpenSans', fontWeight: FontWeight.bold,
+            color: colorsTwo.colorScheme.secondary
+            ),
         headlineLarge: const TextStyle(
             fontSize: 20, fontFamily: 'OpenSans', fontWeight: FontWeight.bold),
         headlineMedium: const TextStyle(
             fontSize: 16, fontFamily: 'OpenSans', fontWeight: FontWeight.bold),
         headlineSmall: const TextStyle(
-            fontSize: 12, fontFamily: 'OpenSans', fontWeight: FontWeight.bold),
+            fontSize: 20, fontFamily: 'OpenSans', fontWeight: FontWeight.bold),
         titleLarge: const TextStyle(
             fontSize: 40, fontFamily: 'OpenSans', fontWeight: FontWeight.bold),
         titleMedium: const TextStyle(
             fontSize: 16, fontFamily: 'OpenSans', fontWeight: FontWeight.bold),
         titleSmall: const TextStyle(
-            fontSize: 12, fontFamily: 'OpenSans', fontWeight: FontWeight.bold),
+            fontSize: 14, fontFamily: 'OpenSans', fontWeight: FontWeight.bold),
         labelLarge: const TextStyle(
             fontSize: 20,
             fontFamily: 'OpenSans',

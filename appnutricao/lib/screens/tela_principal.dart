@@ -1,11 +1,22 @@
+import 'package:appnutricao/components/screens_list.dart';
+import 'package:appnutricao/screens/creditos.dart';
 import 'package:flutter/material.dart';
 import 'package:appnutricao/themes/theme.dart';
+import 'package:appnutricao/components/principal_button.dart';
+import 'package:appnutricao/components/screens_list.dart';
 
-class TelaPrincipal extends StatelessWidget {
+class TelaPrincipal extends StatefulWidget {
   const TelaPrincipal({super.key});
 
   @override
+  State<TelaPrincipal> createState() => _TelaPrincipalState();
+}
+
+class _TelaPrincipalState extends State<TelaPrincipal> {
+  @override
   Widget build(BuildContext context) {
+
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -23,108 +34,49 @@ class TelaPrincipal extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Flexible(
-                      fit: FlexFit.tight,
-                      flex: 10,
-                      child: Stack(
-                        children: [Row(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            Expanded(
-                              child: ElevatedButton(
-                                  style: ButtonStyle(
-                                      backgroundColor: MaterialStateProperty.all(
-                                          colorsTwo.colorScheme.primary)),
-                                          onPressed: () {},
-                                  child: const Text("teste"),),
-                            )
-                          ],
-                        ),]
-                      ),
+                       PrincipalScreenButton(
+                      icon: Icons.app_registration,
+                      label: 'Cadastro',
+                      screen: screenList[0],
                     ),
                     const SizedBox(
                       height: 10,
                     ),
-                    Flexible(
-                      fit: FlexFit.tight,
-                      flex: 10,
-                      child: ElevatedButton.icon(
-                          style: ButtonStyle(
-                              textStyle: MaterialStateProperty.all(
-                                  myTextThemes.textTheme.titleLarge),
-                              backgroundColor: MaterialStateProperty.all(
-                                  colorsTwo.colorScheme.primary)),
-                          icon: const Icon(
-                            Icons.app_registration,
-                            size: 50,
-                          ),
-                          onPressed: () {},
-                          label: const Text("Consulta")),
+                    PrincipalScreenButton(
+                      icon: Icons.search,
+                      label: 'Consulta',
+                      screen: screenList[0],
                     ),
                     const SizedBox(
                       height: 10,
                     ),
-                    Flexible(
-                      fit: FlexFit.tight,
-                      flex: 10,
-                      child: ElevatedButton.icon(
-                          style: ButtonStyle(
-                              textStyle: MaterialStateProperty.all(
-                                  myTextThemes.textTheme.titleLarge),
-                              backgroundColor: MaterialStateProperty.all(
-                                  colorsTwo.colorScheme.primary)),
-                          icon: const Icon(
-                            Icons.app_registration,
-                            size: 50,
-                          ),
-                          onPressed: () {},
-                          label: const Text("Compartilhar")),
+                    PrincipalScreenButton(
+                      icon: Icons.share,
+                      label: 'Compartilhar',
+                      screen: screenList[3],
                     ),
                     const SizedBox(
                       height: 10,
                     ),
-                    Flexible(
-                      fit: FlexFit.tight,
-                      flex: 10,
-                      child: ElevatedButton.icon(
-                          style: ButtonStyle(
-                              textStyle: MaterialStateProperty.all(
-                                  myTextThemes.textTheme.titleLarge),
-                              backgroundColor: MaterialStateProperty.all(
-                                  colorsTwo.colorScheme.primary)),
-                          icon: const Icon(
-                            Icons.app_registration,
-                            size: 50,
-                          ),
-                          onPressed: () {},
-                          label: const Text("Créditos")),
+                    PrincipalScreenButton(
+                      icon: Icons.emoji_events,
+                      label: 'Créditos',
+                      screen: screenList[3],
                     ),
                     const SizedBox(
                       height: 10,
                     ),
-                    Flexible(
-                      fit: FlexFit.tight,
-                      flex: 10,
-                      child: ElevatedButton.icon(
-                          style: ButtonStyle(
-                              textStyle: MaterialStateProperty.all(
-                                  myTextThemes.textTheme.titleLarge),
-                              backgroundColor: MaterialStateProperty.all(
-                                  colorsTwo.colorScheme.primary)),
-                          icon: const Icon(
-                            Icons.app_registration,
-                            size: 50,
-                          ),
-                          onPressed: () {},
-                          label: const Text("Logout")),
+                    PrincipalScreenButton(
+                      icon: Icons.logout,
+                      label: 'Logout',
+                      screen: screenList[0],
                     ),
                   ]),
             ),
           ),
         ),
       ]),
-      backgroundColor: colorsTwo.colorScheme.secondary,
+      backgroundColor: colorsOne.colorScheme.secondary,
     );
   }
 }
