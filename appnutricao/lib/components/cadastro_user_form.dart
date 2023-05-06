@@ -1,14 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:appnutricao/themes/theme.dart';
+import 'package:intl/intl.dart';
 
-class CadastroUserForm extends StatelessWidget {
+class CadastroUserForm extends StatefulWidget {
   const CadastroUserForm({super.key});
+
+  @override
+  State<CadastroUserForm> createState() => _CadastroUserFormState();
+}
+
+class _CadastroUserFormState extends State<CadastroUserForm> {
+  // String dataSelecionada = DateFormat('dd/MM/yyyy').format(DateTime.now());
 
   @override
   Widget build(BuildContext context) {
     return Form(
         child: Column(
       children: [
+        const Card(
+          child: Text('FOTO AQUI'),
+        ),
         TextFormField(
           validator: (String? value) {
             if (value == null || value.isEmpty) {
@@ -63,7 +74,10 @@ class CadastroUserForm extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text('Data Selecionada:\n\ndd/MM/yyyy', textAlign: TextAlign.center,),
+            const Text(
+              'Data Selecionada:\n\n'/*$dataSelecionada*/,
+              textAlign: TextAlign.center,
+            ),
             TextButton(
                 onPressed: () {
                   showDatePicker(
@@ -80,7 +94,12 @@ class CadastroUserForm extends StatelessWidget {
                         );
                       });
                 },
-                child: const Text('Selecione a data')),
+                child: Text('Selecione a data',
+                    style: TextStyle(
+                        color: colorsTwo.colorScheme.secondary,
+                        decoration: TextDecoration.underline,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16))),
           ],
         ),
         const SizedBox(

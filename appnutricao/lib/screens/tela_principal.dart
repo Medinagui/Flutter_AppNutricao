@@ -1,9 +1,7 @@
 import 'package:appnutricao/components/screens_list.dart';
-import 'package:appnutricao/screens/creditos.dart';
 import 'package:flutter/material.dart';
 import 'package:appnutricao/themes/theme.dart';
 import 'package:appnutricao/components/principal_button.dart';
-import 'package:appnutricao/components/screens_list.dart';
 
 class TelaPrincipal extends StatefulWidget {
   const TelaPrincipal({super.key});
@@ -37,7 +35,7 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
                        PrincipalScreenButton(
                       icon: Icons.app_registration,
                       label: 'Cadastro',
-                      screen: screenList[0],
+                      screen: screenList[4],
                     ),
                     const SizedBox(
                       height: 10,
@@ -45,7 +43,7 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
                     PrincipalScreenButton(
                       icon: Icons.search,
                       label: 'Consulta',
-                      screen: screenList[0],
+                      screen: screenList[3],
                     ),
                     const SizedBox(
                       height: 10,

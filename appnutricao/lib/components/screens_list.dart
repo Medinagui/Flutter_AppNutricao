@@ -1,3 +1,4 @@
+import 'package:appnutricao/screens/cadastro.dart';
 import 'package:appnutricao/screens/cadastro_user_login.dart';
 import 'package:appnutricao/screens/creditos.dart';
 import 'package:appnutricao/screens/login.dart';
@@ -14,5 +15,5 @@ List<Widget> screenList = const[
   // 3
   CreditosScreen(),
   // 4 
-  
+  CadastroScreen()
 ];

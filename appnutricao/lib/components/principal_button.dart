@@ -58,10 +58,10 @@ class PrincipalScreenButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
-              child: Icon(
-                icon,
-                size: 70,
+              padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
+              child: IconButton(
+                icon: Icon(icon, size: 75,),
+                onPressed: () => navCadastro(screen),
                 color: Colors.white,
               ),
             )
