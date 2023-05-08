@@ -1,6 +1,4 @@
 import 'package:appnutricao/screens/cadastro.dart';
-import 'package:appnutricao/screens/login.dart';
-import 'package:appnutricao/screens/tela_principal.dart';
 import 'package:flutter/material.dart';
 
 

@@ -1,3 +1,4 @@
+import 'package:appnutricao/components/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:appnutricao/themes/theme.dart';
 
@@ -17,8 +18,9 @@ class _CadastroAlimentoFormState extends State<CadastroAlimentoForm> {
     return Form(
         child: Column(
       children: [
-        const Card(
-          child: Text('FOTO AQUI'),
+        const MyImagePicker(),
+        const SizedBox(
+          height: 15,
         ),
         TextFormField(
           validator: (String? value) {
@@ -43,13 +45,14 @@ class _CadastroAlimentoFormState extends State<CadastroAlimentoForm> {
             padding: const EdgeInsets.all(8.0),
             child: DropdownButtonHideUnderline(
               child: DropdownButton(
-                iconSize: 30,
-                borderRadius: BorderRadius.circular(10),
-                isExpanded: true,
-                hint: const Text('Categoria da Refeição'),
+                  iconSize: 30,
+                  borderRadius: BorderRadius.circular(10),
+                  isExpanded: true,
+                  hint: const Text('Categoria da Refeição'),
                   value: categoriaRefeicao,
                   items: const [
-                    DropdownMenuItem(value: 'Café da Manhã', child: Text('Café da Manhã')),
+                    DropdownMenuItem(
+                        value: 'Café da Manhã', child: Text('Café da Manhã')),
                     DropdownMenuItem(value: 'Almoço', child: Text('Almoço')),
                     DropdownMenuItem(value: 'Janta', child: Text('Janta')),
                   ],
@@ -67,15 +70,17 @@ class _CadastroAlimentoFormState extends State<CadastroAlimentoForm> {
             padding: const EdgeInsets.all(8.0),
             child: DropdownButtonHideUnderline(
               child: DropdownButton(
-                iconSize: 30,
-                borderRadius: BorderRadius.circular(10),
-                isExpanded: true,
-                hint: const Text('Tipo do Alimento'),
+                  iconSize: 30,
+                  borderRadius: BorderRadius.circular(10),
+                  isExpanded: true,
+                  hint: const Text('Tipo do Alimento'),
                   value: tipoAlimento,
                   items: const [
                     DropdownMenuItem(value: 'Bebida', child: Text('Bebida')),
-                    DropdownMenuItem(value: 'Proteína', child: Text('Proteína')),
-                    DropdownMenuItem(value: 'Carboidrato', child: Text('Carboidrato')),
+                    DropdownMenuItem(
+                        value: 'Proteína', child: Text('Proteína')),
+                    DropdownMenuItem(
+                        value: 'Carboidrato', child: Text('Carboidrato')),
                     DropdownMenuItem(value: 'Fruta', child: Text('Fruta')),
                     DropdownMenuItem(value: 'Grão', child: Text('Grão')),
                   ],

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:appnutricao/themes/theme.dart';
 import 'package:intl/intl.dart';
 
+import 'image_picker.dart';
+
 class CadastroUserForm extends StatefulWidget {
   const CadastroUserForm({super.key});
 
@@ -10,16 +12,17 @@ class CadastroUserForm extends StatefulWidget {
 }
 
 class _CadastroUserFormState extends State<CadastroUserForm> {
-  // String dataSelecionada = DateFormat('dd/MM/yyyy').format(DateTime.now());
+  DateTime dataSelecionada = DateTime.now();
+
+  
 
   @override
   Widget build(BuildContext context) {
     return Form(
         child: Column(
       children: [
-        const Card(
-          child: Text('FOTO AQUI'),
-        ),
+        const MyImagePicker(),
+        const SizedBox(height: 15,),
         TextFormField(
           validator: (String? value) {
             if (value == null || value.isEmpty) {
@@ -74,13 +77,13 @@ class _CadastroUserFormState extends State<CadastroUserForm> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text(
-              'Data Selecionada:\n\n'/*$dataSelecionada*/,
+            Text(
+              'Data Selecionada:\n\n${DateFormat('dd/MM/yyyy').format(dataSelecionada)}',
               textAlign: TextAlign.center,
             ),
             TextButton(
-                onPressed: () {
-                  showDatePicker(
+                onPressed: () async {
+                  DateTime? newDate = await showDatePicker(
                       context: context,
                       initialDate: DateTime.now(),
                       firstDate: DateTime(1930),
@@ -93,6 +96,9 @@ class _CadastroUserFormState extends State<CadastroUserForm> {
                           child: child!,
                         );
                       });
+                      if (newDate == null) return;
+
+                      setState(() => dataSelecionada = newDate);
                 },
                 child: Text('Selecione a data',
                     style: TextStyle(
