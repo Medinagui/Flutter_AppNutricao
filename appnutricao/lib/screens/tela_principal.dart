@@ -1,7 +1,7 @@
-import 'package:appnutricao/components/screens_list.dart';
+import 'package:appnutricao/components/classes/screens_list.dart';
 import 'package:flutter/material.dart';
 import 'package:appnutricao/themes/theme.dart';
-import 'package:appnutricao/components/principal_button.dart';
+import 'package:appnutricao/components/buttons/principal_button.dart';
 
 class TelaPrincipal extends StatefulWidget {
   const TelaPrincipal({super.key});
@@ -18,7 +18,7 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: colorsOne.colorScheme.primary,
+        backgroundColor: colorsTwo.colorScheme.secondary,
         title: const Text('Tela Principal', textAlign: TextAlign.center),
         centerTitle: true,
       ),
@@ -27,7 +27,7 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
           child: Card(
             margin: const EdgeInsets.fromLTRB(25, 20, 25, 20),
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(10),
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -74,7 +74,7 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
           ),
         ),
       ]),
-      backgroundColor: colorsOne.colorScheme.secondary,
+      backgroundColor: colorsOne.colorScheme.primary,
     );
   }
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:appnutricao/themes/theme.dart';
 import 'package:intl/intl.dart';
 
-import 'image_picker.dart';
+import '../image_picker.dart';
 
 class CadastroUserForm extends StatefulWidget {
   const CadastroUserForm({super.key});
@@ -118,7 +118,7 @@ class _CadastroUserFormState extends State<CadastroUserForm> {
               onPressed: () {},
               style: ButtonStyle(
                   backgroundColor:
-                      MaterialStateProperty.all(colorsTwo.colorScheme.primary)),
+                      MaterialStateProperty.all(colorsOne.colorScheme.secondary)),
               child: const Text('Cadastrar'),
             ),
           ],

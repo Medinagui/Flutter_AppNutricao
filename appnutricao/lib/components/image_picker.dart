@@ -133,7 +133,7 @@ class _MyImagePickerState extends State<MyImagePicker> {
               )
             : ClipOval(
                 child: Container(
-                  color: colorsOne.colorScheme.secondary,
+                  color: colorsOne.colorScheme.primary,
                   padding: const EdgeInsets.all(20),
                   child: IconButton(
                       iconSize: 130,

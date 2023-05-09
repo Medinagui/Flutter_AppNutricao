@@ -35,7 +35,7 @@ class PrincipalScreenButton extends StatelessWidget {
               child: ElevatedButton(
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(
-                        colorsTwo.colorScheme.primary)),
+                        colorsOne.colorScheme.secondary)),
                 onPressed: () => navCadastro(screen),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,

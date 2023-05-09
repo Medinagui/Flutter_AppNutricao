@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
 ThemeData colorsOne = ThemeData(
-    primaryColor: const Color.fromRGBO(7, 249, 162, 1),
+    primaryColor: const Color.fromRGBO(13, 25, 43, 1),
     colorScheme: ColorScheme.fromSwatch().copyWith(
-        primary: const Color.fromRGBO(7, 249, 162, 1),
-        secondary: const Color.fromRGBO(9, 193, 132, 1)));
+        primary: const Color.fromRGBO(13, 25, 43, 1),
+        secondary: const Color.fromRGBO(223, 166, 42, 1)));
 
 ThemeData colorsTwo = ThemeData(
-    primaryColor: const Color.fromRGBO(10, 137, 103, 1),
+    primaryColor: const Color.fromRGBO(232, 204, 143, 1),
     colorScheme: ColorScheme.fromSwatch().copyWith(
-        primary: const Color.fromRGBO(10, 137, 103, 1),
-        secondary: const Color.fromRGBO(12, 81, 73, 1)));
+        primary: const Color.fromRGBO(232, 204, 143, 1),
+        secondary: const Color.fromRGBO(128, 204, 40, 1)));
 ThemeData colorsThree = ThemeData(
-    primaryColor: const Color.fromRGBO(245, 245, 245, 1),
+    primaryColor: const Color.fromRGBO(217, 217, 217, 1),
     colorScheme: ColorScheme.fromSwatch().copyWith(
-        primary: const Color.fromRGBO(245, 245, 245, 96),
+        primary: const Color.fromRGBO(217, 217, 217, 1),
         secondary: const Color.fromRGBO(0, 0, 0, 1)));
 
 ThemeData myTextThemes = ThemeData(
@@ -59,12 +59,13 @@ ThemeData buttonsTheme = ThemeData(
   elevatedButtonTheme: ElevatedButtonThemeData(
       style: ButtonStyle(
           backgroundColor:
-              MaterialStateProperty.all(colorsTwo.colorScheme.primary))
+              MaterialStateProperty.all(colorsOne.colorScheme.secondary))
               ),
   textButtonTheme: TextButtonThemeData(
       style: ButtonStyle(
-          foregroundColor:
-              MaterialStateProperty.all(colorsTwo.colorScheme.secondary))),
+          foregroundColor: MaterialStateProperty.all(colorsTwo.colorScheme.secondary),
+          textStyle: MaterialStateProperty.all(const TextStyle(decoration: TextDecoration.underline, fontWeight: FontWeight.bold))
+              )),
   iconButtonTheme: IconButtonThemeData(
       style: ButtonStyle(
           textStyle:

@@ -1,7 +1,5 @@
-import 'package:appnutricao/components/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:appnutricao/themes/theme.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 
 class CadastroCardapioForm extends StatefulWidget {
   const CadastroCardapioForm({super.key});
@@ -73,7 +71,7 @@ class _CadastroCardapioFormState extends State<CadastroCardapioForm> {
           height: 10,
         ),
         Card(
-            color: colorsTwo.colorScheme.secondary,
+            color: colorsOne.colorScheme.primary,
             elevation: 5,
             child: const Padding(
               padding: EdgeInsets.all(10),
@@ -123,7 +121,7 @@ class _CadastroCardapioFormState extends State<CadastroCardapioForm> {
           height: 5,
         ),
         Card(
-            color: colorsTwo.colorScheme.secondary,
+            color: colorsOne.colorScheme.primary,
             elevation: 5,
             child: const Padding(
               padding: EdgeInsets.all(10),
@@ -173,7 +171,7 @@ class _CadastroCardapioFormState extends State<CadastroCardapioForm> {
           height: 5,
         ),
         Card(
-            color: colorsTwo.colorScheme.secondary,
+            color: colorsOne.colorScheme.primary,
             elevation: 5,
             child: const Padding(
               padding: EdgeInsets.all(10),
@@ -229,7 +227,7 @@ class _CadastroCardapioFormState extends State<CadastroCardapioForm> {
               onPressed: () {},
               style: ButtonStyle(
                   backgroundColor:
-                      MaterialStateProperty.all(colorsTwo.colorScheme.primary)),
+                      MaterialStateProperty.all(colorsOne.colorScheme.secondary)),
               child: const Text('Cadastrar'),
             ),
           ],

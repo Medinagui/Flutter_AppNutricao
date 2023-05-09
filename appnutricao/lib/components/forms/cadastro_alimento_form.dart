@@ -1,6 +1,8 @@
+import 'package:appnutricao/components/buttons/cadastro_alimento_button.dart';
 import 'package:appnutricao/components/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:appnutricao/themes/theme.dart';
+import 'package:appnutricao/components/classes/alimento.dart';
 
 class CadastroAlimentoForm extends StatefulWidget {
   const CadastroAlimentoForm({super.key});
@@ -13,6 +15,8 @@ class _CadastroAlimentoFormState extends State<CadastroAlimentoForm> {
   String? categoriaRefeicao;
   String? tipoAlimento;
 
+  Alimento? alimentoCadastrado;
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -23,6 +27,7 @@ class _CadastroAlimentoFormState extends State<CadastroAlimentoForm> {
           height: 15,
         ),
         TextFormField(
+          onChanged: (value) => alimentoCadastrado?.nome = value,
           validator: (String? value) {
             if (value == null || value.isEmpty) {
               return 'Insira o nome do alimento';
@@ -57,6 +62,7 @@ class _CadastroAlimentoFormState extends State<CadastroAlimentoForm> {
                     DropdownMenuItem(value: 'Janta', child: Text('Janta')),
                   ],
                   onChanged: (val) {
+                    alimentoCadastrado?.categoria = val!;
                     setState(() {
                       categoriaRefeicao = val.toString();
                     });
@@ -85,6 +91,7 @@ class _CadastroAlimentoFormState extends State<CadastroAlimentoForm> {
                     DropdownMenuItem(value: 'Grão', child: Text('Grão')),
                   ],
                   onChanged: (val) {
+                    alimentoCadastrado?.tipo = val!;
                     setState(() {
                       tipoAlimento = val.toString();
                     });
@@ -92,18 +99,7 @@ class _CadastroAlimentoFormState extends State<CadastroAlimentoForm> {
             ),
           ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            ElevatedButton(
-              onPressed: () {},
-              style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all(colorsTwo.colorScheme.primary)),
-              child: const Text('Cadastrar'),
-            ),
-          ],
-        )
+        const CadastroAlimentoButton()
       ],
     ));
   }

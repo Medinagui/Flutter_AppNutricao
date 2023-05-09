@@ -1,9 +1,9 @@
-import 'package:appnutricao/components/cadastro_user_form.dart';
+import 'package:appnutricao/components/forms/cadastro_user_form.dart';
 import 'package:flutter/material.dart';
 import 'package:appnutricao/themes/theme.dart';
-import 'package:appnutricao/components/cadastro_alimento_form.dart';
+import 'package:appnutricao/components/forms/cadastro_alimento_form.dart';
 
-import '../components/cadastro_cardapio_form.dart';
+import '../components/forms/cadastro_cardapio_form.dart';
 
 class CadastroScreen extends StatefulWidget {
   const CadastroScreen({super.key});
@@ -20,18 +20,13 @@ List<Widget> cadastroForms = const [
 
 int _buttonPressed = 0;
 
-
-
 MaterialStateProperty<Color> buttonSelected(int buttonPressed, int buttonID) {
-
   if (buttonPressed == buttonID) {
     return MaterialStateProperty.all(colorsOne.colorScheme.secondary);
   }
-  
+
   return MaterialStateProperty.all(colorsTwo.colorScheme.secondary);
 }
-
-
 
 class _CadastroScreenState extends State<CadastroScreen> {
   @override
@@ -39,7 +34,7 @@ class _CadastroScreenState extends State<CadastroScreen> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: true,
-        backgroundColor: colorsOne.colorScheme.primary,
+        backgroundColor: colorsTwo.colorScheme.secondary,
         title: const Text('Cadastro', textAlign: TextAlign.center),
         centerTitle: true,
       ),
@@ -74,8 +69,8 @@ class _CadastroScreenState extends State<CadastroScreen> {
                             });
                           },
                           style: ButtonStyle(
-                              backgroundColor: buttonSelected(_buttonPressed, 0),
-                              ),
+                            backgroundColor: buttonSelected(_buttonPressed, 0),
+                          ),
                           child: const Text('Usuário'),
                         ),
                         ElevatedButton(
@@ -85,7 +80,8 @@ class _CadastroScreenState extends State<CadastroScreen> {
                               });
                             },
                             style: ButtonStyle(
-                                backgroundColor: buttonSelected(_buttonPressed, 1)),
+                                backgroundColor:
+                                    buttonSelected(_buttonPressed, 1)),
                             child: const Text('Alimento')),
                         ElevatedButton(
                             onPressed: () {
@@ -94,21 +90,20 @@ class _CadastroScreenState extends State<CadastroScreen> {
                               });
                             },
                             style: ButtonStyle(
-                                backgroundColor: buttonSelected(_buttonPressed, 2)),
+                                backgroundColor:
+                                    buttonSelected(_buttonPressed, 2)),
                             child: const Text('Cardápio')),
                       ],
                     ),
                     Padding(
                         padding: const EdgeInsets.all(20),
-                        child: cadastroForms.elementAt(_buttonPressed)
-                        //CadastroAlimentoForm()
-                        )
+                        child: cadastroForms.elementAt(_buttonPressed))
                   ]),
             ),
           ),
         ),
       ),
-      backgroundColor: colorsOne.colorScheme.secondary,
+      backgroundColor: colorsOne.colorScheme.primary,
     );
   }
 }
