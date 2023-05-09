@@ -14,7 +14,6 @@ class CadastroAlimentoForm extends StatefulWidget {
 class _CadastroAlimentoFormState extends State<CadastroAlimentoForm> {
   String? categoriaRefeicao;
   String? tipoAlimento;
-
   Alimento? alimentoCadastrado;
 
   @override

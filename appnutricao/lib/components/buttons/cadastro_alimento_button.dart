@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:appnutricao/themes/theme.dart';
 
-class CadastroAlimentoButton extends StatelessWidget {
-  
-  
-  
+class CadastroAlimentoButton extends StatelessWidget {  
   const CadastroAlimentoButton({super.key});
+
+  
 
   @override
   Widget build(BuildContext context) {
