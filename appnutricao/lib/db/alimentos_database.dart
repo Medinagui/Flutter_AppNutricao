@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:appnutricao/components/classes/alimento.dart';
 import 'package:sqflite/sqflite.dart';
 
@@ -10,7 +11,6 @@ class AlimentosDatabase {
 
   Future<Database> get database async {
     if (_database != null) return _database!;
-
     _database = await _initDB('alimentos.db');
     return _database!;
   }
@@ -19,27 +19,65 @@ class AlimentosDatabase {
     return await openDatabase(filePath, version: 1, onCreate: _createDB);
   }
 
-  Future<Database> _createDB(Database db, int version) async {
-
+  Future _createDB(Database db, int version) async {
     const String idType = 'INTEGER PRIMARY KEY AUTOINCREMENT';
     const String textType = 'TEXT NOT NULL';
-    const String imageType = 'IMAGE NOT NULL';
 
-    await db.execute('''
+    await db.execute(
+      '''
 CREATE TABLE $tableAlimentos
 (
   ${AlimentosFields.id} $idType,
   ${AlimentosFields.nome} $textType,
-  ${AlimentosFields.foto} $imageType,
+  ${AlimentosFields.foto} $textType,
   ${AlimentosFields.categoria} $textType,
   ${AlimentosFields.tipo} $textType,
 )
 ''');
   }
 
+  Future<Alimento> create(Alimento alimento) async {
+    final db = await instance.database;
+    final id = await db.insert(tableAlimentos, alimento.toJson());
+    return alimento.copy(id: id);
+  }
+
+  Future<Alimento> readAlimento(int id) async {
+    final db = await instance.database;
+    final maps = await db.query(tableAlimentos,
+        columns: AlimentosFields.values,
+        where: '${AlimentosFields.id} = ?',
+        whereArgs: [id]);
+
+    if (maps.isNotEmpty) {
+      return Alimento.fromJson(maps.first);
+    } else {
+      throw Exception('ID $id não encontrado');
+    }
+  }
+
+  Future<List<Alimento>> readAllAlimentos() async {
+    final db = await instance.database;
+    const orderBy = '${AlimentosFields.id} ASC';
+    final result = await db.query(tableAlimentos, orderBy: orderBy);
+    final resultList = result.map((json) => Alimento.fromJson(json)).toList();
+    return resultList;
+  }
+
+  Future<int> update(Alimento alimento) async {
+    final db = await instance.database;
+    return db.update(tableAlimentos, alimento.toJson(),
+        where: '${AlimentosFields.id} = ?', whereArgs: [alimento.id]);
+  }
+
+  Future<int> delete(int id) async {
+    final db = await instance.database;
+    return  await db.delete(tableAlimentos,
+        where: '${AlimentosFields.id} = ?', whereArgs: [id]);
+  }
+
   Future close() async {
     final db = await instance.database;
-
     db.close();
   }
 }

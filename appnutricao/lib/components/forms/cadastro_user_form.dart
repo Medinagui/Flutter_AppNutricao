@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:appnutricao/themes/theme.dart';
 import 'package:intl/intl.dart';
 
-import '../image_picker.dart';
+import 'imagepicker/image_picker.dart';
 
 class CadastroUserForm extends StatefulWidget {
   const CadastroUserForm({super.key});

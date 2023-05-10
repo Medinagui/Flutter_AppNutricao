@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:appnutricao/themes/theme.dart';
 
 class CadastroAlimentoButton extends StatelessWidget {  
-  const CadastroAlimentoButton({super.key});
+  CadastroAlimentoButton({super.key, required this.cadastro});
 
+  Future<dynamic> cadastro;
   
 
   @override
@@ -12,7 +13,7 @@ class CadastroAlimentoButton extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () => cadastro,
           style: ButtonStyle(
               backgroundColor:
                   MaterialStateProperty.all(colorsOne.colorScheme.secondary)),

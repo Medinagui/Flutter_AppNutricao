@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:appnutricao/themes/theme.dart';
 import 'package:appnutricao/components/forms//cadastro_alimento_form.dart';
 import '../components/classes/alimento.dart';
+import 'package:appnutricao/db/alimentos_database.dart';
+import 'dart:async';
+import 'dart:convert';
+import 'dart:typed_data';
 
 
 class TestesScreen extends StatefulWidget {
@@ -11,9 +15,26 @@ class TestesScreen extends StatefulWidget {
   State<TestesScreen> createState() => _TestesScreenState();
 }
 
-List<Alimento> listaTeste = [];
-
 class _TestesScreenState extends State<TestesScreen> {
+
+  List<Alimento> listaTeste = [];
+  bool isLoading = false;
+
+  @override
+  void initState(){
+    super.initState();
+
+    refreshAlimentos();
+  }
+
+  Future refreshAlimentos() async {
+    setState(() => isLoading = true);
+
+    listaTeste = await AlimentosDatabase.instance.readAllAlimentos();
+    
+    setState(() => isLoading = false);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,10 +60,12 @@ class _TestesScreenState extends State<TestesScreen> {
                   itemCount: listaTeste.length,
                   itemBuilder: (context, index) {
                   final Alimento exemplo = listaTeste[index];
+                  Uint8List foto = base64.decode(exemplo.foto);
 
                   return ListTile(
                     subtitle: Text('${exemplo.tipo} - ${exemplo.categoria}'),
                     title: Text(exemplo.nome),
+                    leading: CircleAvatar(backgroundImage: foto as ImageProvider,),
                   );
                 }))
                 ]),
