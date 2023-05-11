@@ -20,21 +20,25 @@ class AlimentosDatabase {
   }
 
   Future _createDB(Database db, int version) async {
+    
     const String idType = 'INTEGER PRIMARY KEY AUTOINCREMENT';
     const String textType = 'TEXT NOT NULL';
 
     await db.execute(
       '''
-CREATE TABLE $tableAlimentos
-(
+CREATE TABLE $tableAlimentos (
   ${AlimentosFields.id} $idType,
   ${AlimentosFields.nome} $textType,
-  ${AlimentosFields.foto} $textType,
+  ${AlimentosFields.pathFoto} $textType,
   ${AlimentosFields.categoria} $textType,
-  ${AlimentosFields.tipo} $textType,
-)
+  ${AlimentosFields.tipo} $textType)
 ''');
   }
+
+  // Future dropDB() async {
+  //   final db = await instance.database;
+  //   db.rawQuery("DROP TABLE IF EXISTS Alimentos");
+  // }
 
   Future<Alimento> create(Alimento alimento) async {
     final db = await instance.database;

@@ -1,18 +1,14 @@
-import 'dart:typed_data';
-
-
-
 const String tableAlimentos = 'Alimentos';
 
 class AlimentosFields {
 
   static final List<String> values = [
-    id, nome, foto, categoria, tipo
+    id, nome, pathFoto, categoria, tipo
   ];
 
   static const String id = '_id';
   static const String nome = 'nome';
-  static const String foto = 'foto';
+  static const String pathFoto = 'pathFoto';
   static const String categoria = 'categoria';
   static const String tipo = 'tipo';
 }
@@ -22,7 +18,7 @@ class AlimentosFields {
 class Alimento {
   final int? id;
   String nome;
-  String foto;
+  String? pathFoto;
   String categoria;
   String tipo;
 
@@ -30,7 +26,7 @@ class Alimento {
       {
       this.id,
       required this.nome,
-      required this.foto,
+      this.pathFoto,
       required this.categoria,
       required this.tipo}
   );
@@ -38,7 +34,7 @@ class Alimento {
   Map<String, Object?> toJson() => {
     AlimentosFields.id: id,
     AlimentosFields.nome: nome,
-    AlimentosFields.foto: foto,
+    AlimentosFields.pathFoto: pathFoto,
     AlimentosFields.categoria: categoria,
     AlimentosFields.tipo: tipo
   };
@@ -46,7 +42,7 @@ class Alimento {
   Alimento copy({
     int? id,
     String? nome,
-    String? foto,
+    String? pathFoto,
     String? categoria,
     String? tipo
   }) =>
@@ -54,7 +50,7 @@ class Alimento {
   Alimento(
     id: id ?? this.id,
     nome: nome ?? this.nome,
-    foto: foto ?? this.foto,
+    pathFoto: pathFoto ?? this.pathFoto,
     categoria: categoria ?? this.categoria,
     tipo: tipo ?? this.tipo,
   );
@@ -62,7 +58,7 @@ class Alimento {
   static Alimento fromJson(Map<String, Object?> json) => Alimento(
     id: json[AlimentosFields.id] as int?,
     nome: json[AlimentosFields.nome] as String, 
-    foto: json[AlimentosFields.foto] as String, 
+    pathFoto: json[AlimentosFields.pathFoto] as String, 
     categoria: json[AlimentosFields.categoria] as String, 
     tipo: json[AlimentosFields.tipo] as String);
 

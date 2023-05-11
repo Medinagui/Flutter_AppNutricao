@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:appnutricao/themes/theme.dart';
 import 'package:appnutricao/components/forms//cadastro_alimento_form.dart';
@@ -23,7 +25,6 @@ class _TestesScreenState extends State<TestesScreen> {
   @override
   void initState(){
     super.initState();
-
     refreshAlimentos();
   }
 
@@ -60,12 +61,12 @@ class _TestesScreenState extends State<TestesScreen> {
                   itemCount: listaTeste.length,
                   itemBuilder: (context, index) {
                   final Alimento exemplo = listaTeste[index];
-                  Uint8List foto = base64.decode(exemplo.foto);
+                  Image foto = Image.file(File(exemplo.pathFoto!));
 
                   return ListTile(
                     subtitle: Text('${exemplo.tipo} - ${exemplo.categoria}'),
                     title: Text(exemplo.nome),
-                    leading: CircleAvatar(backgroundImage: foto as ImageProvider,),
+                    //leading: CircleAvatar(backgroundImage: foto as ImageProvider,),
                   );
                 }))
                 ]),

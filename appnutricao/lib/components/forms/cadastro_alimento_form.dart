@@ -1,9 +1,11 @@
+import 'dart:io';
+
 import 'package:appnutricao/components/buttons/cadastro_alimento_button.dart';
 import 'package:appnutricao/components/forms/imagepicker/image_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:appnutricao/themes/theme.dart';
 import 'package:appnutricao/components/classes/alimento.dart';
-import '../../db/alimentos_database.dart';
+import 'package:appnutricao/db/alimentos_database.dart';
 
 class CadastroAlimentoForm extends StatefulWidget {
   const CadastroAlimentoForm({super.key});
@@ -15,7 +17,7 @@ class CadastroAlimentoForm extends StatefulWidget {
 class _CadastroAlimentoFormState extends State<CadastroAlimentoForm> {
   String? categoriaRefeicao;
   String? tipoAlimento;
-  Alimento? alimentoCadastrado = Alimento(nome: 'nome', foto: imageSelected!, categoria: 'categoria', tipo: 'tipo');
+  Alimento? alimentoCadastrado = Alimento(nome: 'nome', pathFoto: 'a', categoria: 'categoria', tipo: 'tipo');
 
   @override
   void initState(){
@@ -23,7 +25,7 @@ class _CadastroAlimentoFormState extends State<CadastroAlimentoForm> {
   }
 
   Future createAlimento(Alimento alimentoCadastrado) async {
-    alimentoCadastrado.foto = imageSelected!;
+    alimentoCadastrado.pathFoto = imageSelected;
     return AlimentosDatabase.instance.create(alimentoCadastrado);
   }
 

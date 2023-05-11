@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
 import 'image_picker_ifphoto.dart';
 import 'image_picker_elsephoto.dart';
 import 'dart:convert';
@@ -22,16 +23,19 @@ class _MyImagePickerState extends State<MyImagePicker> {
 
   Future pickImage(ImageSource source) async {
     try {
-      final image = await ImagePicker().pickImage(source: source);
+      final XFile? image = await ImagePicker().pickImage(source: source);
       if (image == null) return;
 
       final imageTemporary = File(image.path);
 
+      final String caminho = getApplicationDocumentsDirectory().toString();
+
       setState(() => this.image = imageTemporary);
 
-      final asBytesImage =  await imageTemporary.readAsBytes();
+      final File newImage = await imageTemporary.copy('$caminho/${DateTime.now()}');
+      final String newCaminho = newImage.path;
 
-      setState(() => imageSelected = base64.encode(asBytesImage));
+      setState(() => imageSelected = newCaminho);
     } on PlatformException catch (e) {
       print('Failed to pick image: $e');
     }
