@@ -7,6 +7,7 @@ import 'image_picker_ifphoto.dart';
 import 'image_picker_elsephoto.dart';
 import 'dart:convert';
 import 'dart:typed_data';
+import 'package:intl/intl.dart';
 
 class MyImagePicker extends StatefulWidget {
   const   MyImagePicker({super.key});
@@ -28,11 +29,11 @@ class _MyImagePickerState extends State<MyImagePicker> {
 
       final imageTemporary = File(image.path);
 
-      final String caminho = getApplicationDocumentsDirectory().toString();
+      final Directory caminho = await getApplicationDocumentsDirectory();
 
       setState(() => this.image = imageTemporary);
 
-      final File newImage = await imageTemporary.copy('$caminho/${DateTime.now()}');
+      final File newImage = await imageTemporary.copy('${caminho.toString()}/image1.jpg');
       final String newCaminho = newImage.path;
 
       setState(() => imageSelected = newCaminho);

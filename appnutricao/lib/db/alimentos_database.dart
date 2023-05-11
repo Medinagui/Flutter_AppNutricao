@@ -22,7 +22,7 @@ class AlimentosDatabase {
   Future _createDB(Database db, int version) async {
     
     const String idType = 'INTEGER PRIMARY KEY AUTOINCREMENT';
-    const String textType = 'TEXT NOT NULL';
+    const String textType = 'TEXT';
 
     await db.execute(
       '''
@@ -35,10 +35,20 @@ CREATE TABLE $tableAlimentos (
 ''');
   }
 
-  // Future dropDB() async {
-  //   final db = await instance.database;
-  //   db.rawQuery("DROP TABLE IF EXISTS Alimentos");
-  // }
+  // temp init
+
+  Future dropDB() async {
+    final db = await instance.database;
+    db.rawQuery("DROP DATABASE alimentos.db");
+  }
+
+  Future<void> DropTableIfExistsThenReCreate() async {
+    Database db = await _initDB('alimentos.db');
+    await db.execute("DROP TABLE IF EXISTS $tableAlimentos");
+    await _createDB(db, 1);
+  }
+
+  // temp final
 
   Future<Alimento> create(Alimento alimento) async {
     final db = await instance.database;
@@ -61,6 +71,7 @@ CREATE TABLE $tableAlimentos (
   }
 
   Future<List<Alimento>> readAllAlimentos() async {
+    
     final db = await instance.database;
     const orderBy = '${AlimentosFields.id} ASC';
     final result = await db.query(tableAlimentos, orderBy: orderBy);

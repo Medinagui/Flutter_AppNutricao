@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:appnutricao/themes/theme.dart';
+import 'package:appnutricao/db/alimentos_database.dart';
 
 class PrincipalScreenButton extends StatelessWidget {
   final String label;
@@ -36,7 +37,9 @@ class PrincipalScreenButton extends StatelessWidget {
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(
                         colorsOne.colorScheme.secondary)),
-                onPressed: () => navCadastro(screen),
+                onPressed: () => {
+                  navCadastro(screen)
+                  },
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [

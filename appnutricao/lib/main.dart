@@ -20,7 +20,7 @@ class _NutricaoAppState extends State<NutricaoApp> {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: TestesScreen()
+      home: CadastroScreen()
     );
   }
 } 

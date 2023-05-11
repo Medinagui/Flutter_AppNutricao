@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:appnutricao/themes/theme.dart';
 
 class CadastroAlimentoButton extends StatelessWidget {  
-  CadastroAlimentoButton({super.key, required this.cadastro});
+  const CadastroAlimentoButton({super.key, required this.cadastro});
 
-  Future<dynamic> cadastro;
+  final Future<dynamic> cadastro;
   
 
   @override
